@@ -1,0 +1,71 @@
+﻿@using WebsiteBanSach.Models
+@using webbansach.Model
+@model List<Sach>
+
+
+@{
+    ViewBag.Title = "SachTheoNXB";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@{int i = 0;}
+@foreach (var item in Model)
+{
+    i++;
+    <div id="SanPham">
+        <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="200px" height="250px" /></div>
+        <div id="tensach-dongia">
+            @if (item.TenSach.Length < 35)
+            {
+                <div id="TenSach" title=" @item.TenSach">
+
+                    @item.TenSach
+                </div>
+            }
+
+            else
+            {
+                <div id="TenSach" title="@item.TenSach">
+
+                    @item.TenSach.Substring(0,35).....
+                </div>
+
+
+            }
+            <div id="DonGia">@item.GiaBan VNĐ</div>
+        </div>
+
+    </div>
+    if (i % 3 == 0)
+    {
+
+    }
+}   
+
+<style>
+    #AnhBia, #TenSach, #DonGia {
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+    li {
+        margin: 10px;
+        font-size: 20px;
+        height: 40px;
+        width: 40px;
+        border: 1px solid;
+        text-align: center;
+        background-color: white;
+    }
+
+        li:hover {
+            margin: 10px;
+            font-size: 20px;
+            height: 40px;
+            width: 40px;
+            border: 1px solid;
+            text-align: center;
+            background-color: lightgray;
+            color: black;
+        }
+   
+</style>

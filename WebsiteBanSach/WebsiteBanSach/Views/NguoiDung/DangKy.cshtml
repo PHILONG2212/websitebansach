@@ -1,0 +1,254 @@
+﻿@model WebsiteBanSach.Models.KhachHang
+
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+
+<div class="DangKyTK">
+<h2>Đăng ký</h2>
+    <h1>@ViewBag.ThongBao</h1>
+@using (Html.BeginForm())
+{
+    
+
+    
+    @*
+        
+    @Html.AntiForgeryToken()
+   @Html.ValidationSummary(true)
+    *@
+
+    <fieldset>
+       
+        @*
+            
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaKH)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaKH)
+           
+            @Html.ValidationMessageFor(model => model.MaKH)
+        </div>
+        *@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HoTen)
+        </div>
+        <div class="editor-field" >
+            @Html.EditorFor(model => model.HoTen)
+            <span id="loiHoTen"></span>
+            @*
+                
+         @Html.ValidationMessageFor(model => model.HoTen)
+            *@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaiKhoan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TaiKhoan)
+            <span id="loiTaiKhoan"></span>
+            @*
+                
+            @Html.ValidationMessageFor(model => model.TaiKhoan)
+            *@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MatKhau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MatKhau)
+         <span id="loiMatKhau"></span>
+@*
+    @*
+
+    @Html.ValidationMessageFor(model => model.MatKhau)
+*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+          <span id="loiEmail"></span>
+@*
+    @*
+
+    @Html.ValidationMessageFor(model => model.Email)
+*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DiaChi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DiaChi)
+<span id="loiDiaChi"></span>
+@*
+    @*
+
+    @Html.ValidationMessageFor(model => model.DiaChi)
+*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DienThoai)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DienThoai)
+<span id="loiDienThoai"></span>
+@*
+    @*
+
+    @Html.ValidationMessageFor(model => model.DienThoai)
+*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GioiTinh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GioiTinh)
+<span id="loiGioiTinh"></span>
+@*
+    @*
+
+    @Html.ValidationMessageFor(model => model.GioiTinh)
+*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgaySinh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgaySinh)
+<span id="loiNgaySinh"></span>
+@*
+    @*
+
+    @Html.ValidationMessageFor(model => model.NgaySinh)
+*@
+        </div>
+
+        <p>
+            <input id="btnSubmit" type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+
+
+@*
+*@
+<script type="text/javascript">
+    
+    $('#btnSubmit').click(function () {
+        var loi = 0;
+        if ($('#HoTen').val() == "") {
+            $('#loiHoTen').text("Họ tên không để trống")
+            loi++;
+        }
+        else {
+            $('#loiHoTen').text('')
+        }
+
+        if ($('#TaiKhoan').val() == "") {
+            $('#loiTaiKhoan').text("Tài khoản không để trống")
+            loi++;
+        }
+        else {
+            $('#loiTaiKhoan').text('')
+        }
+
+        if ($('#MatKhau').val() == "") {
+            $('#loiMatKhau').text("Tài khoản không để trống")
+            loi++;
+        }
+        else {
+            $('#loiMatKhau').text('')
+        }
+
+        if ($('#Email').val() == "") {
+            $('#loiEmail').text("Email không để trống")
+            loi++;
+        }
+        else {
+            $('#loiEmail').text('')
+        }
+
+        if ($('#DiaChi').val() == "") {
+            $('#loiDiaChi').text("Địa chỉ không để trống")
+            loi++;
+        }
+        else {
+            $('#loiDiaChi').text('')
+        }
+
+        if ($('#DienThoai').val() == "") {
+            $('#loiDienThoai').text("Điện thoại không để trống")
+            loi++;
+        }
+        else {
+            $('#loiDienThoai').text('')
+        }
+
+        if ($('#GioiTinh').val() == "") {
+            $('#loiGioiTinh').text("Giới tinh không để trống")
+            loi++;
+        }
+        else {
+            $('#loiGioiTinh').text('')
+        }
+
+        if ($('#NgaySinh').val() == "") {
+            $('#loiNgaySinh').text("Ngày sinh không để trống")
+            loi++;
+        }
+        else {
+            $('#loiNgaySinh').text('')
+        }
+        if(loi!==0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+);
+</script>
+
+<style>
+    .DangKyTK{
+        margin-left:40px;
+    }
+    li {
+        margin: 10px;
+        font-size: 20px;
+        height: 40px;
+        width: 40px;
+        border: 1px solid;
+        text-align: center;
+        background-color: white;
+    }
+
+        li:hover {
+            margin: 10px;
+            font-size: 20px;
+            height: 40px;
+            width: 40px;
+            border: 1px solid;
+            text-align: center;
+            background-color: lightgray;
+            color: black;
+        }
+</style>

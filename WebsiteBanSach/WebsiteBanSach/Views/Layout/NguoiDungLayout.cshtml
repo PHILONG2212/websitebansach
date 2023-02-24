@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*file co san*@
+    
+    @*css cho dangnhapdangky*@
+    <link href="~/Content/csswebbansach/css-nguoidunglayout.css" rel="stylesheet" />
+    
+    @*icon*@
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    
+   
+    @*chèn nivo slider quang cao*@
+
+    <link href="~/NiviSlider/nivo-slider.css" rel="stylesheet">
+
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/NiviSlider/jquery.nivo.slider.js"></script>
+    <script src="~/NiviSlider/jquery.nivo.slider.pack.js"></script>
+
+   
+</head>
+<body>
+    
+     
+        <!-- Topbar Start -->
+    <div class="toantrang">
+        
+        @*tao dang nhap dang ky*@
+        <div class="DangKyDangNhap" style="font-size:15px;">
+            <div class="div-dangkydangnhap">
+                @Html.Action("GioHangPartial","GioHang")
+                <i class="fa fa-registered" style="margin-left: 10px;" aria-hidden="true"></i>
+                @Html.ActionLink("Admin", "Admin", "Admin", null, htmlAttributes: new { @class = "DangKy" })
+
+                <i class="fa fa-sign-out" style="margin-left: 10px;" aria-hidden="true"></i>
+            @Html.ActionLink("Đăng ký", "DangKy", "NguoiDung", null, htmlAttributes: new { @class = "DangKy" })
+
+                <i class="fa fa-sign-out" style="margin-left: 10px;" aria-hidden="true"></i>
+            @Html.ActionLink("Đăng nhập", "DangNhap", "NguoiDung", null, htmlAttributes: new { @class = "DangNhap" })
+                <i class="fa fa-sign-out" style="margin-left: 10px;" aria-hidden="true"></i>
+                @Html.ActionLink("Đăng xuất", "SignOut", "NguoiDung")
+            </div>
+        </div>
+
+        <div class="heder">
+            @*hop tim kiem*@
+            <div class="txtTimKiem">
+                @using (Html.BeginForm("KetQuaTimKiem","TimKiem",FormMethod.Post))
+                {
+                    @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào từ khóa cần tìm" })
+                    <div class="nut">
+                        <button style="border:none;" type="submit">
+                           
+                            <img src="~/hinhanh/search-icon-2.png" height="40px" width="40px"></img>
+                        </button>
+                    </div>
+                    }
+            </div>
+            <div class="menu">
+                <ul class="navMenu">
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","GioiThieu")">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","LienHe")">Liên hệ</a>
+                    </li>
+                 
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Sách</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <section>
+            @*div menu ben trai*@
+            
+                <div class="activity">
+                    @*chen vao partial view*@
+                    <div class="divbentrai">
+                        @Html.Action("SachMoiPartial","Sach")
+                   
+                    </div>
+              
+            </div>
+            <div id="slider" class="nivoSlider">
+                @*chen anh nivo slider*@
+                <img src="~/hinhanh/download (1).jfif" />
+                <img src="~/hinhanh/download (2).jfif" />
+                <img src="~/hinhanh/download (3).jfif" />
+                <img src="~/hinhanh/download.jfif" />
+            </div>
+            <div style="clear:both;"></div>
+        </section>
+        @*div body*@
+        <div id="NoiDung">
+
+            @RenderBody()
+        </div>
+        <section>
+            @* phan chu de*@
+            <div style="margin-top: 50px;
+    padding: 0 20px 0 20px;
+    line-height: 100px;clear:left;">
+               @Html.Action("ChuDePartial","ChuDe")
+            </div>
+
+
+
+        </section>
+
+        
+        @*div cho nha xuat ban*@
+        <section class="blank-item">
+            <div class="item">
+                
+                <div class="item-info">
+                    @*action partialview*@
+                    @Html.Action("NhaXuatBanPartial","NhaXuatBan")
+                 
+                </div>
+             
+            </div>
+            <div class="divRight">
+                @RenderSection("noidungbenphai",false)
+            </div>
+
+
+
+            <div style="clear:both"></div>
+           
+        </section>
+        <div class="PhanCuoi">
+            <a href="#" class="button button-buy">WEB BÁN SÁCH</a>
+        </div>
+      
+      
+
+       
+      
+
+    </div>
+    @*script chay slider*@
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                controlNav: false,
+                nextText: '',
+                prevText:''
+
+            });
+        });
+    </script>
+
+
+</body>
+</html>

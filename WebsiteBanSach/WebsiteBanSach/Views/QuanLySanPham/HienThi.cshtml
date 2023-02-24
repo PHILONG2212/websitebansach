@@ -1,0 +1,92 @@
+﻿@model WebsiteBanSach.Models.Sach
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Hiển thị</h2>
+
+
+   
+<fieldset>
+ 
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaSach)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaSach)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TenSach)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenSach)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GiaBan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GiaBan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MoTa)
+    </div>
+    <div class="display-field">
+        @Html.Raw(Model.MoTa)
+    </div>
+
+    <div class="display-label">
+
+         @Html.DisplayNameFor(model => model.AnhBia)
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AnhBia)
+      
+      
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NgayCapNhat)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayCapNhat)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SoLuongTon)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SoLuongTon)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NhaXuatBan.TenNXB)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChuDe.TenChuDe)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChuDe.TenChuDe)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Moi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Moi)
+    </div>
+  
+</fieldset>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @MaSach=Model.MaSach }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>

@@ -1,0 +1,110 @@
+﻿@model WebsiteBanSach.Models.Sach
+
+@{
+    ViewBag.Title = "ThemMoi";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>ThemMoi</h2>
+
+@using (Html.BeginForm("ThemMoi","QuanLySanPham" , FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Sach</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaSach)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaSach)
+            @Html.ValidationMessageFor(model => model.MaSach)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TenSach)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenSach)
+            @Html.ValidationMessageFor(model => model.TenSach)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GiaBan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GiaBan)
+            @Html.ValidationMessageFor(model => model.GiaBan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MoTa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MoTa)
+            @Html.ValidationMessageFor(model => model.MoTa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnhBia)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.AnhBia)
+                @Html.ValidationMessageFor(model => model.AnhBia)
+                <input type="file" name="fileUpload" />
+                @ViewBag.ThongBao
+            </div>
+        </div>
+        
+      
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgayCapNhat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgayCapNhat)
+            @Html.ValidationMessageFor(model => model.NgayCapNhat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SoLuongTon)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongTon)
+            @Html.ValidationMessageFor(model => model.SoLuongTon)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaNXB)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaNXB)
+            @Html.ValidationMessageFor(model => model.MaNXB)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaChuDe)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaChuDe)
+            @Html.ValidationMessageFor(model => model.MaChuDe)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Moi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Moi)
+            @Html.ValidationMessageFor(model => model.Moi)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

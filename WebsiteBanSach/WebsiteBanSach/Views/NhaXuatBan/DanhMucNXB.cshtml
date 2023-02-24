@@ -1,0 +1,13 @@
+﻿@using WebsiteBanSach.Models
+
+
+@model List<NhaXuatBan>
+@{
+    ViewBag.Title = "DanhMucNXB";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("SachTheoNXB", new {@MaNXB=item.MaNXB })" class="buttom-chude">@item.TenNXB</a>
+}

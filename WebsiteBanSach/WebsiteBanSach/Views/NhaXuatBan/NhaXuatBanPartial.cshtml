@@ -1,0 +1,24 @@
+﻿@using WebsiteBanSach.Models
+@using webbansach.Model;
+@model List<NhaXuatBan>
+
+<link href="~/Content/csswebbansach/style.css" rel="stylesheet" />
+
+<h1>Nhà xuất bản</h1>
+
+@foreach (var item in Model)
+{
+    
+
+
+    <div>
+        <a href="@Url.Action("SachTheoNXB", new { @MaNXB=item.MaNXB  })" class="button button-buy"><i class="glyphicon glyphicon-envelope"></i> @item.TenNXB</a>
+        
+    </div>
+      
+
+  
+    
+}
+
+<a href="@Url.Action("DanhMucNXB")" class="button button-buy"><i class="glyphicon glyphicon-envelope"></i> Nhà xuất bản khác</a>

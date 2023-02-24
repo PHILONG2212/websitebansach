@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<div class="DangNhapTK">
+
+<h2>Đăng nhập</h2>
+<h1>@ViewBag.ThongBao</h1>
+@using (Html.BeginForm())
+{
+    <span>Tài khoản: </span> <br />
+    @Html.TextBox("txtTaiKhoan");
+   
+    <br />
+    <span>Mật khẩu: </span><br />
+   
+   
+  
+    <input name="txtMatkhau" type="text" />
+   
+    <br />
+    <input type="submit" id="txtSubmit" name="btnSubmit" />
+}
+</div>
+@*
+    
+<script type="text/javascript">
+    $('#txtSubmit').click(function () {
+        if ($('#TaiKhoan').val() == "") {
+            $('#loiTaiKhoan').text("Tài khoản không để trống")
+            return false;
+        }
+    }
+    );
+    $('#txtSubmit').click(function () {
+        if ($('#MatKhau').val() == "") {
+            $('#loiMatKhau').text("Mật khẩu không để trống")
+            return false;
+        }
+    }
+   );
+</script>
+*@
+<style>
+    .DangNhapTK {
+        margin-left: 40px;
+    }
+    li {
+        margin: 10px;
+        font-size: 20px;
+        height: 40px;
+        width: 40px;
+        border: 1px solid;
+        text-align: center;
+        background-color: white;
+    }
+
+        li:hover {
+            margin: 10px;
+            font-size: 20px;
+            height: 40px;
+            width: 40px;
+            border: 1px solid;
+            text-align: center;
+            background-color: lightgray;
+            color: black;
+        }
+</style>

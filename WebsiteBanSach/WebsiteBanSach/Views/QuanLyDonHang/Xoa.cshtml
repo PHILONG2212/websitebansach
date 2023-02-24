@@ -1,0 +1,62 @@
+﻿@model WebsiteBanSach.Models.DonHang
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Xoa</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>DonHang</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaDonHang)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaDonHang)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DaThanhToan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DaThanhToan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TinhTrangGiaoHang)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TinhTrangGiaoHang)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NgayDat)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayDat)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NgayGiao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayGiao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaKH)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaKH)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

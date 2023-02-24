@@ -1,0 +1,19 @@
+﻿@using WebsiteBanSach.Models
+@using webbansach.Model;
+@model List<ChuDe>
+
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("SachTheoChuDe", new {@MaChuDe=item.MaChuDe })" class="buttom-chude">@item.TenChuDe</a>
+}
+<a href="" class="buttom-chude">Chủ đề khác...</a>
+
+@*
+<a href="" class="buttom-chude"> khoa học</a>
+<a href="" class="buttom-chude"> công nghệ thông tin</a>
+<a href="" class="buttom-chude"> tình yêu</a>
+<a href="" class="buttom-chude"> xã hội</a>
+<a href="" class="buttom-chude"> nhăn văn</a>
+    
+*@

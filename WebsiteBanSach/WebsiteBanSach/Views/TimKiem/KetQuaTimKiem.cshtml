@@ -1,0 +1,82 @@
+﻿
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.PagedList<WebsiteBanSach.Models.Sach>
+<link href="~/Content/csswebbansach/TrangChuCss.css" rel="stylesheet" />
+<link href="~/Content/csswebbansach/css-nguoidunglayout.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "KetQuaTimKiem";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<div><h4>
+    
+    @ViewBag.ThongBao   
+    </h4>
+    </div>
+<div id="divBody">
+    <h2>Sách mới xuất bản</h2>
+    @{int i = 0;}
+    @foreach (var item in Model)
+    {
+        i++;
+        <div id="SanPham">
+            <a href="@Url.Action("XemChiTiet", "Sach", new {@MaSach=item.MaSach })">  <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="200px" height="250px" /></div></a>
+            <div id="tensach-dongia">
+                <div id="TenSach">@item.TenSach</div>
+                <hr style="background-color:black;">
+                <div id="DonGia">@item.GiaBan</div>
+
+            </div>
+            <div class="GioHang">
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                {
+
+                    <input type="submit" value="Mua hàng" />
+                }
+
+            </div>
+        </div>
+                if (i % 3 == 0)
+                {
+
+                }
+    }
+</div>
+<div style="clear:both"></div>
+@*TẠO LINK LIEN KET TRANG*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    
+            @Html.PagedListPager(Model, page => Url.Action("KetQuaTimKiem", new { page = page, @sTuKhoa = ViewBag.TuKhoa }))
+
+     
+</div>
+
+<style>
+    .MenuTrang {
+        display: inline;
+        list-style: none;
+    }
+    li {
+        margin: 10px;
+        font-size: 20px;
+        height: 40px;
+        width: 40px;
+        border: 1px solid;
+        text-align: center;
+        background-color: white;
+    }
+
+        li:hover {
+            margin: 10px;
+            font-size: 20px;
+            height: 40px;
+            width: 40px;
+            border: 1px solid;
+            text-align: center;
+            background-color: lightgray;
+            color: black;
+        }
+    
+</style>

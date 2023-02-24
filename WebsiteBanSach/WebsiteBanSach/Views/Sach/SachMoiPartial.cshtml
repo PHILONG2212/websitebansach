@@ -1,0 +1,34 @@
+﻿@using WebsiteBanSach.Models
+@using webbansach.Model;
+@model List<Sach>
+    @*DINH DANG KIEU DU LIEU CHO MODEL*@
+               <h1 class="item-header">Sách mới </h1>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="activity-list-update">
+            <img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" height="80px" width="70px" alt="Image" />
+            @if (item.TenSach.Length > 30)
+            {
+            <p class="tieude" title="@item.TenSach"><strong>@item.TenSach.Substring(0,30).... </strong><br /><a href="@Url.Action("XemChiTiet", new { masach = item.MaSach })">Xem chi tiết</a></p>
+
+            }
+            else
+            {
+                <p class="tieude" title="@item.TenSach"><strong>@item.TenSach</strong><br /><a href="@Url.Action("XemChiTiet", new { masach = item.MaSach })">Xem chi tiết</a></p>
+            <div class="clear"></div>
+            }
+        </div>
+    }
+}
+
+
+
+
+
+<div class="item-green">
+    <a href="@Url.Action("Index")" class="item-footer green">
+        Sách loại mới nhất  
+    </a>
+</div>

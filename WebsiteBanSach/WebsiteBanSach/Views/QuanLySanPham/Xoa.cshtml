@@ -1,0 +1,90 @@
+﻿@model WebsiteBanSach.Models.Sach
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+
+
+<h3>Bạn có thật sự muốn xóa quyền sách này?</h3>
+<fieldset>
+    <legend>Sach</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaSach)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaSach)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TenSach)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenSach)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GiaBan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GiaBan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MoTa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MoTa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AnhBia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AnhBia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NgayCapNhat)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayCapNhat)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SoLuongTon)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SoLuongTon)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NhaXuatBan.TenNXB)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChuDe.TenChuDe)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChuDe.TenChuDe)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Moi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Moi)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Xóa" /> |
+        @Html.ActionLink("Trở về", "Index")
+    </p>
+}

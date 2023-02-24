@@ -1,0 +1,36 @@
+﻿
+#divBody{
+    padding:40px;
+}
+#SanPham{
+    float:left;
+    margin-left:100px;
+    width:350px;
+        margin-top: 50px;
+    margin-bottom: 120px;
+    border:2px solid;
+    height:550px;
+    padding:20px;
+        background-color: thistle;
+}
+
+#tensach-dongia{
+    border:1px  solid ;
+    
+    width:300px;
+    height:200px;
+    padding:10px;
+    margin-top:10px
+}
+#TenSach{
+    font-size:20px;
+}
+#DonGia{
+  
+}
+#AnhBia{
+    text-align:center;
+}
+.GioHang{
+    margin-top:10px;
+}

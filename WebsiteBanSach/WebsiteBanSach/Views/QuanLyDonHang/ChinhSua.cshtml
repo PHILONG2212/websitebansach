@@ -1,0 +1,74 @@
+﻿@model WebsiteBanSach.Models.DonHang
+
+@{
+    ViewBag.Title = "ChinhSua";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>ChinhSua</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DonHang</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaDonHang)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaDonHang)
+            @Html.ValidationMessageFor(model => model.MaDonHang)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DaThanhToan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DaThanhToan)
+            @Html.ValidationMessageFor(model => model.DaThanhToan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TinhTrangGiaoHang)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TinhTrangGiaoHang)
+            @Html.ValidationMessageFor(model => model.TinhTrangGiaoHang)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgayDat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgayDat)
+            @Html.ValidationMessageFor(model => model.NgayDat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgayGiao)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgayGiao)
+            @Html.ValidationMessageFor(model => model.NgayGiao)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaKH)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaKH)
+            @Html.ValidationMessageFor(model => model.MaKH)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

@@ -1,0 +1,86 @@
+﻿
+@using WebsiteBanSach.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Sach>
+
+<link href="~/Content/csswebbansach/TrangChuCss.css" rel="stylesheet" />
+
+<link href="~/Content/csswebbansach/style.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+@section noidungbenphai {
+    <div>
+        Sách là sản phẩm sáng tạo bằng trí tuệ và tâm hồn của con người, là kho tàng tri thức của nhân loại. Đọc sách không chỉ nâng cao kiến thức, kỹ năng, phát triển tư duy giáo dục mà còn rèn luyện nhân cách con người. Ý nghĩa của việc đọc sách là vô cùng to lớn và rộng mở.
+
+    </div>
+
+    }
+<div id="divBody">
+    <h2>Sách mới xuất bản</h2>
+    @{int i = 0;}
+    @foreach(var item in Model)
+    {
+        i++;
+        <div id="SanPham">
+      <a href="@Url.Action("XemChiTiet", "Sach", new {@MaSach=item.MaSach })">  <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="200px" height="250px" /></div></a>
+            <div id="tensach-dongia">
+        <div id="TenSach">@item.TenSach</div>
+             <hr style="background-color:black;" >
+        <div id="DonGia">@item.GiaBan VNĐ   </div>
+
+            </div>
+            <div class="GioHang">
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                {
+
+                    <input type="submit" value="Mua hàng" />
+                }
+
+            </div>
+        </div>
+        if(i%3 ==0)
+        {
+            
+        }
+    }
+</div>
+<div style="clear:both"></div>
+@*TẠO LINK LIEN KET TRANG*@
+Trang @(Model.PageCount< Model.PageNumber? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page =page}))
+</div>
+
+<style>
+    .MenuTrang{
+        display:inline;
+        
+    }
+    li{
+        margin:10px;
+        font-size:20px;
+        height:40px;
+        width:40px;
+        border : 1px solid;
+        text-align: center;
+        
+        background-color:white
+            
+    }
+        li:hover {
+            margin: 10px;
+            font-size: 20px;
+            height: 40px;
+            width: 40px;
+            border: 1px solid;
+            text-align: center;
+         
+            background-color: lightgray;
+            color:black;
+            
+        }
+   
+</style>
